@@ -42,6 +42,11 @@
   --win-100:#E4F0E5;
   --win-200:#C3DFC6;
   --win-500:#66A86A;
+  --miss:#8C2F2F;
+  --miss-bg:rgba(140,47,47,.10);
+  --miss-line:rgba(140,47,47,.28);
+  --miss-ink:#6E2626;
+  --miss-dim:rgba(110,38,38,.72);
   --goal-bg:rgba(94,84,40,.10);
   --goal-line:rgba(94,84,40,.22);
   --goal-ink:#3B3720;
@@ -86,6 +91,11 @@
   --win-100:#172A1A;
   --win-200:#25452A;
   --win-500:#66A86A;
+  --miss:#B4453C;
+  --miss-bg:rgba(216,124,116,.11);
+  --miss-line:rgba(216,124,116,.26);
+  --miss-ink:#EBB6B0;
+  --miss-dim:rgba(235,182,176,.72);
   --goal-bg:rgba(198,178,96,.09);
   --goal-line:rgba(198,178,96,.20);
   --goal-ink:#E9E3CD;
@@ -200,15 +210,9 @@ h3{font-family:var(--fh);font-weight:600;font-size:18px;letter-spacing:-.005em;m
 p.lead{color:var(--dim);font-size:15px;margin-bottom:15px;line-height:1.55}
 
 /* weekly goal */
-.goalbox{background:var(--goal-bg);border:1px solid var(--goal-line);border-radius:var(--r);padding:15px 17px;margin-bottom:16px;max-width:660px;transition:.2s}
 .goalbox[hidden]{display:none}
 .goalbox.done{background:var(--win);border-color:var(--win)}
-.goalbox.missed{background:var(--card2);border-color:var(--line)}
-.goal-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:11px;flex-wrap:wrap}
-.goal-eyebrow{font-family:var(--fm);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--goal-dim)}
 .goalbox.done .goal-eyebrow{color:rgba(255,255,255,.82)}
-.goalbox.missed .goal-eyebrow{color:var(--faint)}
-.goal-form{display:flex;gap:8px;flex-wrap:wrap}
 .goal-form input{flex:1;min-width:180px;font-family:var(--fb);font-size:14.5px;color:var(--ink);background:var(--card);border:1px solid var(--line2);border-radius:var(--r-sm);padding:12px 14px}
 .goal-form input::placeholder{color:var(--faint)}
 .goal-form input:focus{outline:2px solid var(--win);outline-offset:1px}
@@ -218,15 +222,7 @@ p.lead{color:var(--dim);font-size:15px;margin-bottom:15px;line-height:1.55}
 .gbtn.primary:hover{filter:brightness(1.06);color:#2A2205}
 .gbtn.ok.on{color:var(--on-pillar);background:var(--train);border-color:var(--train)}
 .gbtn.no.on{color:var(--ink);background:var(--card);border-color:var(--dim);font-weight:700}
-.goal-text{font-family:var(--fh);font-weight:600;font-size:clamp(17px,3.2vw,21px);line-height:1.3;letter-spacing:-.01em;margin-bottom:13px;color:var(--goal-ink)}
-.goalbox.missed .goal-text{color:var(--dim)}
 .goalbox.done .goal-text{color:var(--on-deep);text-decoration:line-through;text-decoration-color:rgba(255,255,255,.55);text-decoration-thickness:2px}
-.goal-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.goal-verdict{font-family:var(--fm);font-size:11.5px;color:var(--goal-dim);margin-right:auto}
-.goalbox.done .goal-verdict{color:rgba(255,255,255,.74)}
-.goal-edit{margin-left:auto;font-size:12px;color:var(--goal-dim);background:none;border:none;cursor:pointer;padding:6px;text-decoration:underline;text-underline-offset:3px;font-family:var(--fb)}
-.goal-edit:hover{color:var(--goal-ink)}
-.goalbox.done .goal-edit{color:rgba(255,255,255,.74)}
 
 /* legend + week nav */
 .dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
@@ -234,6 +230,49 @@ p.lead{color:var(--dim);font-size:15px;margin-bottom:15px;line-height:1.55}
 .dot.f{background:var(--food)}
 .dot.t{background:var(--train)}
 .dot.win{background:var(--win-text)}
+
+/* цель недели — одна компактная строка */
+.goalbox{display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  background:var(--goal-bg);border:1px solid var(--goal-line);border-radius:999px;
+  padding:7px 8px 7px 16px;margin-bottom:14px;max-width:720px;transition:.2s}
+.goalbox[hidden]{display:none}
+.goal-eyebrow{font-family:var(--fm);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--goal-dim);flex:0 0 auto;white-space:nowrap}
+#goalContent{flex:1;min-width:0;display:flex;align-items:center;gap:8px}
+.goal-form{flex:1;min-width:0;display:flex;align-items:center;gap:8px}
+.goal-form input{flex:1;min-width:0;font-family:var(--fb);font-size:13.5px;color:var(--ink);
+  background:transparent;border:none;padding:4px 0}
+.goal-form input::placeholder{color:var(--goal-dim);opacity:.75}
+.goal-form input:focus{outline:none}
+.goal-text{flex:1;min-width:0;font-family:var(--fb);font-weight:600;font-size:14px;color:var(--goal-ink);
+  line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.goalbox.done .goal-text{text-decoration:line-through;text-decoration-thickness:2px;opacity:.75}
+.goalbox.missed{background:var(--miss-bg);border-color:var(--miss-line)}
+.goalbox.missed .goal-eyebrow{color:var(--miss-dim)}
+.goalbox.missed .goal-text{color:var(--miss-ink)}
+.goalbox.missed .gico{color:var(--miss-dim)}
+.goalbox.missed .gico:hover{color:var(--miss-ink);background:rgba(140,47,47,.10)}
+.goalbox.missed .gico.no.on{color:#fff;background:var(--miss);border-color:var(--miss)}
+.goal-actions{display:flex;align-items:center;gap:4px;flex:0 0 auto}
+.gico{width:28px;height:28px;flex:0 0 auto;display:grid;place-items:center;border-radius:999px;
+  border:1px solid transparent;background:transparent;color:var(--goal-dim);cursor:pointer;transition:.15s}
+.gico svg{width:13px;height:13px}
+.gico:hover{color:var(--goal-ink);background:rgba(0,0,0,.06)}
+.gico.ok.on{color:var(--on-deep);background:var(--win);border-color:var(--win)}
+.gico.no.on{color:var(--goal-ink);border-color:var(--goal-line);background:transparent}
+.gico.edit svg{width:14px;height:14px}
+.gbtn.primary{flex:0 0 auto;font-family:var(--fb);font-size:12.5px;font-weight:700;
+  color:#2A2205;background:var(--amber);border:none;border-radius:999px;padding:7px 14px;cursor:pointer;white-space:nowrap}
+.gbtn.primary:hover{filter:brightness(1.06)}
+@media(max-width:520px){
+  .goalbox{padding:6px 7px 6px 13px;gap:9px}
+  .goal-eyebrow{font-size:8.5px;letter-spacing:.08em}
+  .goal-text{font-size:13px}
+  .gbtn.primary{font-size:11.5px;padding:6px 11px}
+}
+.app.force-mobile .goalbox{padding:6px 7px 6px 13px;gap:9px}
+.app.force-mobile .goal-eyebrow{font-size:8.5px;letter-spacing:.08em}
+.app.force-mobile .goal-text{font-size:13px}
 
 .wknav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}
 .wknav-arrow{width:36px;height:36px;border-radius:999px;border:1px solid var(--line2);background:var(--card);color:var(--ink);font-size:17px;line-height:1;cursor:pointer;transition:.15s;flex:0 0 auto;box-shadow:var(--sh-sm)}
@@ -1111,9 +1150,7 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
   </div>
 
   <div class="goalbox" id="goalBox">
-    <div class="goal-head">
-      <span class="goal-eyebrow">Главная цель недели</span>
-    </div>
+    <span class="goal-eyebrow">Цель недели</span>
     <div id="goalContent"></div>
   </div>
 
@@ -2152,21 +2189,22 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
 
     if(!g || !g.text){
       $('goalContent').innerHTML=
-        '<div class="goal-form"><input id="goalInput" type="text" maxlength="120" placeholder="'+(isThisWeek()?'Что одно сделает эту неделю успешной?':'Какая была цель на эту неделю?')+'">'
-        +'<button class="gbtn primary" id="goalSave">Записать</button></div>';
+        '<div class="goal-form"><input id="goalInput" type="text" maxlength="120" placeholder="Что сделает эту неделю успешной?">'
+        +'<button class="gbtn primary" id="goalSave" title="Записать">Записать</button></div>';
       return;
     }
     if(g.status==='done') box.classList.add('done');
     if(g.status==='missed') box.classList.add('missed');
-    var verdict = g.status==='done' ? 'Цель закрыта' : (g.status==='missed' ? 'Не в этот раз — перенеси или разбей на меньше' : 'Отметь в конце недели');
     $('goalContent').innerHTML=
-      '<p class="goal-text">'+esc(g.text)+'</p>'
-      +'<div class="goal-actions">'
-      +'<span class="goal-verdict">'+verdict+'</span>'
-      +'<button class="gbtn ok'+(g.status==='done'?' on':'')+'" data-st="done">Сделано</button>'
-      +'<button class="gbtn no'+(g.status==='missed'?' on':'')+'" data-st="missed">Не сделано</button>'
-      +'<button class="goal-edit" id="goalEdit">изменить</button>'
-      +'</div>';
+      '<span class="goal-text">'+esc(g.text)+'</span>'
+      +'<span class="goal-actions">'
+      +'<button class="gico ok'+(g.status==='done'?' on':'')+'" data-st="done" title="Сделано" aria-label="Сделано">'
+      +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 7"/></svg></button>'
+      +'<button class="gico no'+(g.status==='missed'?' on':'')+'" data-st="missed" title="Не сделано" aria-label="Не сделано">'
+      +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>'
+      +'<button class="gico edit" id="goalEdit" title="Изменить" aria-label="Изменить">'
+      +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9a2.1 2.1 0 0 0-3-3L5 17v3z"/></svg></button>'
+      +'</span>';
   }
 
   $('goalContent').addEventListener('click',function(e){
