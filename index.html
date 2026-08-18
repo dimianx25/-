@@ -155,9 +155,7 @@ main[hidden]{display:none}
 main{display:block;border-top-width:1px;border-top-style:solid;border-top-color:var(--line2);padding-top:22px}
 .tabs::-webkit-scrollbar{display:none}
 .tabs button{flex:0 0 auto;font-family:var(--fb);font-weight:600;color:var(--dim);background:transparent;border:none;border-radius:999px;cursor:pointer;white-space:nowrap}
-.tabs button:hover{color:var(--ink)}.tab-pair{display:flex;align-items:center;flex:0 0 auto;border:1px solid var(--line2);border-radius:999px;padding:2px}
-.tab-pair button{padding:7px 13px}
-.tab-pair .tdiv{width:1px;height:15px;background:var(--line2);flex:0 0 auto}
+.tabs button:hover{color:var(--ink)}
 
 section[hidden]{display:none}@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
@@ -241,7 +239,6 @@ p.lead{color:var(--dim);font-size:15px;margin-bottom:15px;line-height:1.55}
 .dow{font-family:var(--fh);font-weight:700;font-size:17px;color:var(--ink)}
 .date{font-family:var(--fm);font-size:10.5px;color:var(--faint)}
 .plan{font-family:var(--fb);font-size:11px;font-weight:600;padding:4px 9px;border:1px solid var(--line);border-radius:999px;white-space:nowrap}
-.planhint{font-family:var(--fb);font-size:12.5px;line-height:1.5;color:var(--dim);margin:-6px 0 14px}
 /* бонусные иконки стоят слева от основных столпов */
 .toggles{display:flex;flex-direction:row;align-items:center;gap:9px;flex-wrap:wrap;justify-content:center}
 .togmain{display:flex;gap:4px}
@@ -349,44 +346,23 @@ input[type=number],input[type=text]{font-family:var(--fb);font-size:15px;color:v
 
 /* всегда три колонки, даже на телефоне */
 .row3{grid-template-columns:repeat(3,1fr)!important;gap:8px!important}
-.row3 .box{padding:13px 8px}
-.row3 .box .k{font-size:9.5px;letter-spacing:.03em}
-.row3 .box .v{font-size:clamp(17px,4.6vw,25px);margin-top:4px;white-space:nowrap}
 
 /* ритуал перед сном */
 .ritual{display:flex;flex-direction:column}
-.rit-step{display:grid;grid-template-columns:66px 1fr;gap:14px;padding:15px 0;border-top:1px solid var(--line)}
+.rit-step{display:grid;grid-template-columns:58px 1fr;gap:11px;padding:10px 0;border-top:1px solid var(--line)}
 .rit-step:first-child{border-top:none;padding-top:2px}
 .rit-step:last-child{padding-bottom:0}
-.rit-time{font-family:var(--fm);font-size:10.5px;letter-spacing:.03em;color:var(--sleep);padding-top:4px;white-space:nowrap}
-.rit-item{margin-bottom:12px}
+.rit-time{font-family:var(--fm);font-size:10px;letter-spacing:.03em;color:var(--sleep);padding-top:2px;white-space:nowrap}
+.rit-item{margin-bottom:7px}
 .rit-item:last-child{margin-bottom:0}
-.rit-item b{display:block;font-family:var(--fb);font-weight:700;font-size:14.5px;color:var(--ink);margin-bottom:3px;line-height:1.35}
-.rit-item span{display:block;font-size:13px;color:var(--dim);line-height:1.5}
+.rit-item b{display:block;font-family:var(--fb);font-weight:700;font-size:13.5px;color:var(--ink);margin-bottom:1px;line-height:1.3}
+.rit-item span{display:block;font-size:12.5px;color:var(--dim);line-height:1.45}
 @media(max-width:520px){
   .rit-step{grid-template-columns:1fr;gap:6px}
   .rit-time{padding-top:0}
 }
 .app.force-mobile .rit-step{grid-template-columns:1fr;gap:6px}
 .app.force-mobile .rit-time{padding-top:0}
-
-.sched{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px}
-.sched .box{background:var(--sleep-100);border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center}
-.sched .box .k{font-family:var(--fm);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim)}
-.sched .box .v{font-family:var(--fh);font-weight:700;font-size:27px;color:var(--sleep);margin-top:5px}
-
-/* identity */
-.creed{background:var(--win);border:none;padding:26px;text-align:center;}
-.creed p{font-family:var(--fh);font-weight:500;font-size:clamp(18px,3.4vw,23px);line-height:1.4;color:rgba(255,255,255,.86);letter-spacing:-.005em}
-.creed p b{color:#FFFFFF;font-weight:700}
-.rule{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line)}
-.rule:last-child{border-bottom:none}
-.rule .no{font-family:var(--fh);font-weight:700;font-size:26px;color:var(--win-text);line-height:1;min-width:34px}
-.rule .txt h4{font-family:var(--fh);font-weight:600;font-size:16px;margin-bottom:6px;color:var(--ink)}
-.rule .txt p{font-size:14px;color:var(--dim);line-height:1.55}
-.check{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:8px}
-.check li{font-size:14px;color:var(--dim);padding-left:22px;position:relative}
-.check li::before{content:"→";position:absolute;left:0;color:var(--win-text);font-family:var(--fm)}
 
 /* food diary */
 .fd-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:17px}
@@ -564,34 +540,28 @@ table.fm tr.sum td:first-child{color:var(--food);font-family:var(--fh);font-weig
 .hl.l2{background:var(--win-500)}
 .hl.l3{background:var(--win)}
 
-/* rules */
-.rules-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
-.rule-add{font-family:var(--fb);font-size:12.5px;font-weight:700;color:var(--on-deep);background:var(--win);border:none;border-radius:999px;padding:9px 15px;cursor:pointer;transition:.15s}
-.rule-add:hover{filter:brightness(1.08)}
-.rule-add.cancel{color:var(--dim);background:var(--card2);border:1px solid var(--line2)}
-.rform{background:var(--card2);border:1px solid var(--line2);border-radius:16px;padding:14px;}
-.rform .rrow{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}
-.rform .rrow .field{flex:1;min-width:120px}
-.rform input[type=text]{width:100%}
-.rform input[type=time]{font-family:var(--fb);font-size:14px;color:var(--ink);background:var(--card);border:1px solid var(--line2);border-radius:var(--r-sm);padding:10px 12px;width:100%}
-.rform .rsave{width:100%;margin-top:12px;font-family:var(--fb);font-weight:700;font-size:14px;color:var(--on-deep);background:var(--win);border:none;border-radius:999px;padding:12px;cursor:pointer}
-.rgroup{margin-bottom:20px}
-.rgroup:last-child{margin-bottom:0}
-.rg-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.rg-name{font-family:var(--fm);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
-.rg-line{flex:1;height:1px;background:var(--line)}
-.rg-count{font-family:var(--fm);font-size:10.5px;color:var(--faint)}
-.ritem{background:var(--card2);border:1px solid var(--line);border-radius:14px;margin-bottom:8px}
-.ritem:last-child{margin-bottom:0}
-.r-no{font-family:var(--fh);font-weight:700;font-size:15px;color:var(--win-text);min-width:20px;line-height:1.5}
-.r-body{flex:1;min-width:0}
-.r-text{font-size:14.5px;color:var(--ink);line-height:1.5;word-wrap:break-word}
-.r-time{display:inline-block;font-family:var(--fm);font-size:10.5px;color:var(--win-text);background:var(--win-100);border-radius:999px;padding:3px 9px;margin-top:6px}
-.r-acts{display:flex;gap:4px;flex:0 0 auto}
-.r-acts button{background:none;border:none;color:var(--faint);cursor:pointer;padding:3px 5px;font-size:13px;line-height:1;transition:.15s}
-.r-acts button:hover{color:var(--ink)}
-.r-acts button.del:hover{color:#E0736A}
-.rempty{font-family:var(--fb);font-size:13.5px;color:var(--faint);text-align:center;padding:22px 10px;line-height:1.6}
+/* калькулятор сна */
+.slp-in{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:14px 0 10px}
+.slp-in label{font-family:var(--fb);font-size:14px;color:var(--dim)}
+.slp-in input{font-family:var(--fm);font-size:22px;font-weight:600;color:var(--ink);background:var(--card2);
+  border:1px solid var(--line2);border-radius:var(--r-sm);padding:8px 12px}
+.slp-adv{display:flex;align-items:center;gap:8px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.slp-adv label,.slp-adv span{font-family:var(--fb);font-size:12.5px;color:var(--faint)}
+.slp-adv input{width:64px;font-family:var(--fm);font-size:13px;color:var(--ink);background:transparent;
+  border:1px solid var(--line2);border-radius:var(--r-sm);padding:5px 8px}
+.slp-row{display:grid;grid-template-columns:auto 18px auto 1fr;align-items:center;gap:10px;
+  padding:11px 0;border-bottom:1px solid var(--line)}
+.slp-row:last-child{border-bottom:none}
+.slp-time{display:flex;flex-direction:column;line-height:1.2}
+.slp-k{font-family:var(--fm);font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:var(--faint)}
+.slp-time b{font-family:var(--fm);font-size:19px;font-weight:600;color:var(--dim)}
+.slp-row.good .slp-time b{color:var(--ink)}
+.slp-arrow{text-align:center;color:var(--faint);font-size:13px}
+.slp-meta{display:flex;flex-direction:column;align-items:flex-end;line-height:1.3}
+.slp-meta span{font-family:var(--fb);font-size:11.5px;color:var(--faint)}
+.slp-row.good .slp-meta span:first-child{color:var(--sleep);font-weight:600}
+.slp-note{font-family:var(--fb);font-size:12px;line-height:1.5;color:var(--faint);margin-top:14px}
+.slp-empty{font-family:var(--fb);font-size:13px;color:var(--faint);padding:14px 0}
 
 .datafoot{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:11px;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px))}
 .datafoot[hidden]{display:none}
@@ -616,7 +586,6 @@ table.fm tr.sum td:first-child{color:var(--food);font-family:var(--fh);font-weig
   .day{flex-direction:row;align-items:center;padding:10px 13px}
   .day-info{flex-direction:row;align-items:center;gap:10px;flex-wrap:wrap}
   .toggles{margin-left:auto;flex-wrap:nowrap;justify-content:flex-end}
-  .sched{grid-template-columns:1fr}
   .calc-grid{grid-template-columns:1fr}
   .macros{grid-template-columns:1fr}
   .meal .t{min-width:80px}
@@ -663,24 +632,15 @@ table.fm tr.sum td:first-child{color:var(--food);font-family:var(--fh);font-weig
 
 /* iOS приближает страницу при фокусе на поле со шрифтом <16px — поднимаем до 16 на сенсорных экранах */
 @media(max-width:820px){
-  input[type=text], input[type=number], input[type=time], input[type=email], textarea, select:not(.wsel), .goal-form input, .addpanel input, .rform input{
+  input[type=text], input[type=number], input[type=time], input[type=email], textarea, select:not(.wsel), .goal-form input, .addpanel input{
     font-size:16px!important;
   }
 }
 @media(pointer:coarse){
-  input[type=text], input[type=number], input[type=time], input[type=email], textarea, select:not(.wsel), .goal-form input, .addpanel input, .rform input{
+  input[type=text], input[type=number], input[type=time], input[type=email], textarea, select:not(.wsel), .goal-form input, .addpanel input{
     font-size:16px!important;
   }
 }
-
-.ritem{display:flex;align-items:flex-start;gap:8px;padding:7px 0;border-top:1px solid var(--line)}
-.ritem:first-of-type{border-top:none}
-
-.rform{margin-bottom:10px}
-.rform textarea{width:100%;font-family:var(--fb);font-size:13px;line-height:1.45;color:var(--ink);
-  background:var(--card);border:1px solid var(--line2);border-radius:10px;padding:9px 11px;resize:vertical;
-  white-space:pre-wrap;overflow-wrap:anywhere}
-.rform textarea:focus{outline:2px solid var(--win);outline-offset:1px}
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
@@ -693,7 +653,6 @@ table.fm tr.sum td:first-child{color:var(--food);font-family:var(--fh);font-weig
 .app.force-mobile .day{flex-direction:row;align-items:center;padding:10px 13px}
 .app.force-mobile .day-info{flex-direction:row;align-items:center;gap:10px;flex-wrap:wrap}
 .app.force-mobile .toggles{margin-left:auto;flex-wrap:nowrap;justify-content:flex-end}
-.app.force-mobile .sched{grid-template-columns:1fr}
 .app.force-mobile .calc-grid{grid-template-columns:1fr}
 .app.force-mobile .macros{grid-template-columns:1fr}
 .app.force-mobile .meal .t{min-width:80px}
@@ -716,7 +675,6 @@ h2.sec,h3,.dow,.goal-text{letter-spacing:-.02em}
 .tabs button{padding:11px 18px;font-size:13.5px}
 .tabs button.active{color:var(--on-deep);background:var(--win);}
 .tabs button.active:hover{color:var(--on-deep)}
-.tab-pair{border-color:var(--line2)}
 
 /* карточки без жёстких границ, с мягкой тенью */
 .card,.settings{border-color:transparent;}
@@ -730,9 +688,6 @@ h2.sec,h3,.dow,.goal-text{letter-spacing:-.02em}
 .calc-btn,.gbtn.primary{border-radius:999px}
 .gbtn.primary{color:var(--on-deep);background:var(--win);border-color:var(--win)}
 .gbtn.primary:hover{color:var(--on-deep);filter:brightness(1.1)}
-
-/* крупная плашка «победа» */
-.creed{border-radius:var(--r);box-shadow:var(--sh)}
 .kcal-big{border-radius:var(--r);border-color:transparent}
 
 /* герб — кольцо недели */
@@ -825,7 +780,6 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
 /* ===== тёмная тема: выровненный контраст ===== */
 
 [data-theme="dark"] .tabs button.active{color:#0E140F}
-[data-theme="dark"] .creed p{color:rgba(255,255,255,.9)}
 [data-theme="dark"] .app::before{opacity:.28}
 [data-theme="dark"] .app::after{opacity:.24}
 </style>
@@ -890,11 +844,7 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
     <button data-tab="food">Питание</button>
     <button data-tab="sleep">Сон</button>
     <button data-tab="train">Тренировки</button>
-    <span class="tab-pair">
-      <button data-tab="rules">Правила</button>
-      <span class="tdiv"></span>
-      <button data-tab="id">Кто я</button>
-    </span>
+    <button data-tab="id">Идентичность</button>
   </nav>
 
   <main>
@@ -947,18 +897,7 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
     <section id="tab-train" hidden>
       <div class="card">
         <h2 class="sec">Неделя</h2>
-        <p class="planhint">Слева каркас — он повторяется каждую неделю. Справа факт — что вышло на самом деле в конкретный день. Отметка факта каркас не меняет.</p>
         <div id="weekEditor"></div>
-      </div>
-      <div class="card">
-        <h3>Принципы</h3>
-        <ul class="bul">
-          <li><b>Силовая = твоя программа.</b> Многосуставные, функциональные движения с балансом и стабилизацией. Здесь только каркас недели, наполнение — твоё.</li>
-          <li><b>Не два тяжёлых дня подряд.</b> Мышцы растут в отдыхе, а не на тренировке.</li>
-          <li><b>Растяжка в лёгкие дни.</b> 15–25 минут мобилити держат тело подвижным и разгружают силовые.</li>
-          <li><b>Прогрессия по чуть-чуть.</b> Чуть больше вес / повтор / чище техника — каждую неделю понемногу.</li>
-          <li><b>Слушай восстановление.</b> Плохо спал или болеешь — сделай лёгкую версию, но не пропускай насовсем.</li>
-        </ul>
       </div>
     </section>
 
@@ -1070,13 +1009,19 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
     <!-- SLEEP -->
     <section id="tab-sleep" hidden>
       <div class="card">
-        <h2 class="sec">Режим сна</h2>
-        <div class="seg" id="seasonSeg" style="max-width:280px"><button data-v="summer" class="on">Лето</button><button data-v="winter">Зима</button></div>
-        <div class="sched row3">
-          <div class="box"><div class="k">Отбой</div><div class="v" id="sBed">23:00</div></div>
-          <div class="box"><div class="k">Подъём</div><div class="v" id="sWake">07:00</div></div>
-          <div class="box"><div class="k">Длительность</div><div class="v" id="sDur">~8 ч</div></div>
+        <h2 class="sec">Калькулятор сна</h2>
+        <div class="seg" id="slpModeSeg"><button data-v="wake" class="on">Знаю подъём</button><button data-v="bed">Знаю отбой</button></div>
+        <div class="slp-in">
+          <label id="slpLabel" for="slpTime">Во сколько встать</label>
+          <input type="time" id="slpTime" value="07:00">
         </div>
+        <div class="slp-adv">
+          <label for="slpFall">Засыпаю за</label>
+          <input type="number" id="slpFall" min="0" max="60" step="5" value="15">
+          <span>мин</span>
+        </div>
+        <div id="slpOut"></div>
+        <p class="slp-note">Сон идёт циклами примерно по 90 минут. Просыпаться легче в конце цикла, чем в середине.</p>
       </div>
       <div class="card">
         <h3>Ритуал за 60 минут до сна</h3>
@@ -1108,55 +1053,15 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
 
     <!-- IDENTITY -->
     <section id="tab-id" hidden>
-      <div class="creed">
-        <p>Я — человек, который каждый день заботится о теле. Я <b>тренируюсь, сплю и ем по системе</b> — потому что это то, кто я есть.</p>
-      </div>
-      <div class="card" style="margin-top:14px">
-        <h3>Три правила, чтобы не бросить</h3>
-        <div class="rule">
-          <div class="no">1</div>
-          <div class="txt"><h4>Оцениваю себя по действиям, не по настроению</h4><p>Не «хочется / не хочется», а «сделал / не сделал». Настроение — плохой судья. Галочка — честный.</p></div>
-        </div>
-        <div class="rule">
-          <div class="no">2</div>
-          <div class="txt"><h4>Минимальная версия — и никогда не дважды подряд</h4><p>Плохой день? Сделай 2-минутную версию: 10 приседаний, лечь вовремя, один нормальный приём пищи. Пропустить один раз — норма жизни. Пропустить дважды подряд — начало отката. Этого не допускаем.</p></div>
-        </div>
-        <div class="rule">
-          <div class="no">3</div>
-          <div class="txt">
-            <h4>Сверка раз в неделю — 5 минут</h4>
-            <p>В воскресенье честно ответь на три вопроса:</p>
-            <ul class="check">
-              <li>Что сработало на этой неделе?</li>
-              <li>Где я сорвался и почему?</li>
-              <li>Что меняю на следующей неделе?</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <p class="lead" style="margin:0">Система работает без силы воли именно потому, что решения уже приняты, а планка на плохой день опущена до невозможности провалиться. Ты не собираешь мотивацию каждый день — ты просто остаёшься собой.</p>
-      </div>
     </section>
 
-    <!-- RULES -->
-    <section id="tab-rules" hidden>
-      <div class="card">
-        <div class="rules-top">
-          <h3 style="margin:0">Правила</h3>
-          <button class="rule-add" id="ruleAdd">+ Правило</button>
-        </div>
-        <div id="ruleForm"></div>
-        <div id="rulesList"></div>
-      </div>
-    </section>
   </main>
   <footer class="datafoot" id="dataFoot" hidden>
     <button class="data-trigger" id="dataTrigger">Данные и резервная копия</button>
     <div class="data-panel" id="dataPanel" hidden>
       <div class="sync-note" id="syncNote">данные хранятся на этом устройстве</div>
       <div class="datarow">
-        <button class="dbtn" id="btnSync">Сохранить в Telegram</button>
+        <button class="dbtn" id="btnSync">Синхронизировать с Telegram</button>
         <button class="dbtn" id="btnExport">Скачать копию</button>
         <button class="dbtn" id="btnImport">Восстановить</button>
         <input type="file" id="fileIn" accept="application/json,.json" style="display:none">
@@ -1173,10 +1078,16 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
   var TG = (typeof window!=='undefined' && window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initData!==undefined) ? window.Telegram.WebApp : null;
   var LS = (function(){ try{ window.localStorage.setItem('__t','1'); window.localStorage.removeItem('__t'); return window.localStorage; }catch(e){ return null; } })();
   var MEM = {};
-  var SKEYS=['pv_checks','pv_plan','pv_actual','pv_extras','pv_calc','pv_season','pv_goals','pv_food','pv_myfoods','pv_mode','pv_mealview','pv_rules','pv_theme'];
+  var SKEYS=['pv_checks','pv_plan','pv_actual','pv_extras','pv_calc','pv_goals','pv_food','pv_myfoods','pv_mode','pv_mealview','pv_theme'];
 
   function lsGet(k){ if(LS){ var v=LS.getItem('pv:'+k); return v===null?undefined:v; } return MEM[k]; }
   function lsSet(k,v){ if(LS){ try{ LS.setItem('pv:'+k,v); }catch(e){} } else { MEM[k]=v; } }
+
+  // Время последнего изменения каждого ключа. Нужно, чтобы при слиянии
+  // понимать, чья версия свежее, когда одно и то же правили на двух устройствах.
+  var MT={};
+  (function(){ try{ MT=JSON.parse(lsGet('pv_mt')||'{}')||{}; }catch(e){ MT={}; } })();
+  function touch(k,ts){ MT[k]=ts||Date.now(); lsSet('pv_mt',JSON.stringify(MT)); }
 
   async function load(key, fb){
     if(hasStore){ try{ var r=await window.storage.get(key); if(!r) return fb; return JSON.parse(r.value); }catch(e){ return fb; } }
@@ -1186,15 +1097,109 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
   async function save(key, val){
     if(hasStore){ try{ await window.storage.set(key, JSON.stringify(val)); }catch(e){} return; }
     lsSet(key, JSON.stringify(val));
+    touch(key);
     scheduleCloud();
   }
 
   // --- Telegram CloudStorage: снимок режется на куски по 3800 симв. (лимит 4096 на ключ) ---
   var CHUNK=3800, syncTimer=null, syncing=false, lastPushed=null, lastParts=0;
   function snapshot(){
-    var o={}; for(var i=0;i<SKEYS.length;i++){ var v=lsGet(SKEYS[i]); if(v!==undefined&&v!==null) o[SKEYS[i]]=v; }
-    return JSON.stringify(o);
+    var d={}; for(var i=0;i<SKEYS.length;i++){ var v=lsGet(SKEYS[i]); if(v!==undefined&&v!==null) d[SKEYS[i]]=v; }
+    return JSON.stringify({v:2,mt:MT,d:d});
   }
+  // Старый формат — плоский {ключ:строка}. Приводим к новому виду.
+  function readSnapshot(s){
+    var o=JSON.parse(s);
+    if(!isObj(o)) return null;
+    if(o.v===2 && isObj(o.d)) return {mt:isObj(o.mt)?o.mt:{}, d:o.d};
+    return {mt:{}, d:o};
+  }
+  // ---- слияние: складываем данные двух устройств, а не заменяем целиком ----
+  // Разные дни просто объединяются. Спорным остаётся только день,
+  // который правили и там и там — правила выбора ниже.
+  function mergeByDay(loc,rem,pick){
+    var out={},k;
+    for(k in loc) out[k]=loc[k];
+    for(k in rem){ out[k] = (k in out) ? pick(out[k],rem[k]) : rem[k]; }
+    return out;
+  }
+  function parseOr(raw,fb){ try{ var v=JSON.parse(raw); return v===null?fb:v; }catch(e){ return fb; } }
+
+  // Отметки складываем: сон отмечен на телефоне, еда на компьютере —
+  // после слияния стоит и то и другое. Так ничего не теряется.
+  function unionChecks(a,b){
+    a=isObj(a)?a:{}; b=isObj(b)?b:{};
+    return {s:!!(a.s||b.s), f:!!(a.f||b.f), t:!!(a.t||b.t)};
+  }
+  function unionExtras(a,b){
+    a=isObj(a)?a:{}; b=isObj(b)?b:{};
+    return {z:!!(a.z||b.z), r:!!(a.r||b.r)};
+  }
+  // Еда: складываем записи по каждому приёму, повторы убираем.
+  function unionFood(a,b){
+    a=isObj(a)?a:{}; b=isObj(b)?b:{};
+    var out={b:[],l:[],d:[],s:[]};
+    for(var i=0;i<MEALS.length;i++){
+      var mk=MEALS[i][0], seen={}, lists=[a[mk],b[mk]];
+      for(var q=0;q<2;q++){
+        var arr=lists[q]; if(!Array.isArray(arr)) continue;
+        for(var j=0;j<arr.length;j++){
+          var e=arr[j]; if(!isObj(e)) continue;
+          var id=e.n+'|'+e.g+'|'+e.k;
+          if(seen[id]) continue;
+          seen[id]=1; out[mk].push(e);
+        }
+      }
+    }
+    return out;
+  }
+
+  // Возвращает true, если что-то из облака реально изменило локальные данные.
+  function mergeSnapshot(remote){
+    var changed=false;
+    for(var i=0;i<SKEYS.length;i++){
+      var key=SKEYS[i], rRaw=remote.d[key];
+      if(rRaw===undefined||rRaw===null) continue;
+      var lRaw=lsGet(key);
+      var rTs=+remote.mt[key]||0, lTs=+MT[key]||0;
+      var rNewer=rTs>lTs;
+
+      if(lRaw===undefined||lRaw===null){          // локально пусто — просто берём
+        lsSet(key,rRaw); touch(key,Math.max(rTs,1)); changed=true; continue;
+      }
+      if(lRaw===rRaw) continue;                   // одинаково — нечего делать
+
+      var merged;
+      if(key==='pv_checks'){
+        merged=mergeByDay(parseOr(lRaw,{}),parseOr(rRaw,{}),unionChecks);
+      } else if(key==='pv_extras'){
+        merged=mergeByDay(parseOr(lRaw,{}),parseOr(rRaw,{}),unionExtras);
+      } else if(key==='pv_food'){
+        merged=mergeByDay(parseOr(lRaw,{}),parseOr(rRaw,{}),unionFood);
+      } else if(key==='pv_goals'||key==='pv_actual'){
+        // одно значение на день — спорный решаем по времени
+        merged=mergeByDay(parseOr(lRaw,{}),parseOr(rRaw,{}),function(a,b){ return rNewer?b:a; });
+      } else if(key==='pv_myfoods'){
+        // свои продукты: объединяем по названию
+        var la=parseOr(lRaw,[]), ra=parseOr(rRaw,[]);
+        if(!Array.isArray(la)) la=[]; if(!Array.isArray(ra)) ra=[];
+        var seen={},out=[],j;
+        for(j=0;j<la.length;j++){ if(isObj(la[j])){ seen[la[j].n]=1; out.push(la[j]); } }
+        for(j=0;j<ra.length;j++){ if(isObj(ra[j])&&!seen[ra[j].n]){ seen[ra[j].n]=1; out.push(ra[j]); } }
+        merged=out;
+      } else {
+        // каркас, калькулятор, правила, тема — целиком, свежее побеждает
+        if(!rNewer) continue;
+        lsSet(key,rRaw); touch(key,rTs); changed=true; continue;
+      }
+
+      var mRaw=JSON.stringify(merged);
+      if(mRaw!==lRaw){ lsSet(key,mRaw); touch(key,Math.max(rTs,lTs,1)); changed=true; }
+      else if(rNewer) touch(key,rTs);
+    }
+    return changed;
+  }
+
   function setSyncNote(txt,cls){
     var el=document.getElementById('syncNote'); if(!el) return;
     el.textContent=txt; el.className='sync-note'+(cls?' '+cls:'');
@@ -1202,13 +1207,35 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
   function scheduleCloud(){
     if(!TG||!TG.CloudStorage) return;
     clearTimeout(syncTimer);
-    syncTimer=setTimeout(cloudPush,2500);
+    syncTimer=setTimeout(cloudSync,2500);
   }
-  function cloudPush(){
-    if(!TG||!TG.CloudStorage||syncing) return;
+
+  // Полный цикл: сначала читаем облако и сливаем с локальным,
+  // только потом записываем объединённое. Без чтения перед записью
+  // второе устройство затирало бы отметки первого.
+  function cloudSync(cb){
+    if(!TG||!TG.CloudStorage){ if(cb) cb(false,false); return; }
+    if(syncing){ scheduleCloud(); if(cb) cb(false,false); return; }
+    syncing=true;
+    setSyncNote('синхронизирую…');
+    pullFrom('pf', function(ok, changed){
+      if(ok) return finish(changed);
+      pullFrom('pv', function(ok2, changed2){ finish(!!changed2); });   // старый снимок
+    });
+    function finish(changed){
+      if(changed) lastPushed=null;      // локальное изменилось — снимок надо переслать
+      doPush(function(){
+        if(changed && typeof onCloudMerge==='function') onCloudMerge();
+        if(cb) cb(true,changed);
+      });
+    }
+  }
+
+  var onCloudMerge=null;
+
+  function doPush(after){
     var s=snapshot();
-    if(s===lastPushed) return;              // ничего не изменилось — не тратим запись
-    syncing=true; setSyncNote('сохраняю…');
+    if(s===lastPushed){ syncing=false; if(after) after(); return; }
     var parts=[];
     for(var i=0;i<s.length;i+=CHUNK) parts.push(s.slice(i,i+CHUNK));
     var done=0, failed=false;
@@ -1222,8 +1249,9 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
         syncing=false;
         lastPushed = failed ? null : s;
         if(!failed) lastParts = parts.length;
-        setSyncNote(failed?'не сохранилось — попробую позже':'сохранено в Telegram '+new Date().toTimeString().slice(0,5), failed?'bad':'ok');
+        setSyncNote(failed?'не сохранилось — попробую позже':'синхронизировано '+new Date().toTimeString().slice(0,5), failed?'bad':'ok');
         if(failed) scheduleCloud();
+        if(after) after();
       });
     }
     if(!parts.length){ fin(); return; }
@@ -1236,9 +1264,10 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
       })(j);
     }
   }
+
   function cloudPull(cb){ pullFrom('pf', function(ok){ ok ? cb(true) : pullFrom('pv', cb); }); }
   // 'pf' — своё пространство ключей. 'pv' — общий снимок старой объединённой версии:
-  // читается только при первом запуске и никогда не перезаписывается, остаётся резервной копией.
+  // читается только если в 'pf' пусто, и никогда не перезаписывается.
   function pullFrom(ns, cb){
     if(!TG||!TG.CloudStorage) return cb(false);
     TG.CloudStorage.getItem(ns+'_n', function(err,val){
@@ -1249,10 +1278,11 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
         if(err2||!items) return cb(false);
         var s=''; for(var k=0;k<n;k++) s+=(items[ns+'_c'+k]||'');
         try{
-          var o=JSON.parse(s), got=false;
-          for(var key in o){ if(SKEYS.indexOf(key)>=0){ lsSet(key,o[key]); got=true; } }
-          if(got && ns==='pf') lastParts=n;
-          cb(got);
+          var remote=readSnapshot(s);
+          if(!remote) return cb(false);
+          var changed=mergeSnapshot(remote);
+          if(ns==='pf') lastParts=n;
+          cb(true,changed);
         }catch(e){ cb(false); }
       });
     });
@@ -1274,7 +1304,7 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
     ['r','Ритуал','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c2.2 2.6 3.3 4.6 3.3 6.1a3.3 3.3 0 0 1-6.6 0c0-1.5 1.1-3.5 3.3-6.1z"/><path d="M12 16.2V21"/><path d="M8.5 21h7"/></svg>']
   ];
 
-  var state={ checks:{}, plan:Object.assign({},DEFAULT_PLAN), actual:{}, extras:{}, calc:null, season:'summer', goals:{}, food:{}, myfoods:[], rules:[] };
+  var state={ checks:{}, plan:Object.assign({},DEFAULT_PLAN), actual:{}, extras:{}, calc:null, goals:{}, food:{}, myfoods:[] };
   var MEALS=[['b','Завтрак'],['l','Обед'],['d','Ужин'],['s','Перекусы']];
 
   var MONTH_NAMES=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
@@ -1356,20 +1386,6 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
       var g=raw[k]; if(!isObj(g)) continue;
       var txt=str(g.text,120); if(!txt) continue;
       out[k]={text:txt,status:(g.status==='done'||g.status==='missed')?g.status:null};
-    }
-    return out;
-  }
-  function normRules(raw){
-    var out=[]; if(!Array.isArray(raw)) return out;
-    var valid=[]; for(var p=0;p<PARTS.length;p++) valid.push(PARTS[p][0]);
-    for(var i=0;i<raw.length;i++){
-      var r=raw[i]; if(!isObj(r)) continue;
-      var txt=str(r.text,200); if(!txt) continue;
-      out.push({
-        text:txt,
-        part:valid.indexOf(r.part)>=0?r.part:'morning',
-        time:/^\d{2}:\d{2}$/.test(r.time)?r.time:''
-      });
     }
     return out;
   }
@@ -1490,99 +1506,59 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
     save('pv_mode',liteMode);
   });
 
-  // ---- rules ----
-  var PARTS=[['morning','Утро'],['day','День'],['evening','Вечер']];
-  var ruleEdit=null, ruleFormOpen=false;
+  var ESC_MAP={'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'};
+  function esc(s){ return String(s).replace(/[&<>"']/g,function(c){ return ESC_MAP[c]; }); }
 
-  function renderRuleForm(){
-    if(!ruleFormOpen){ $('ruleForm').innerHTML=''; $('ruleAdd').textContent='+ Правило'; $('ruleAdd').classList.remove('cancel'); return; }
-    var r = ruleEdit!==null ? state.rules[ruleEdit] : {text:'',time:'',part:'morning'};
-    var opts='';
-    for(var i=0;i<PARTS.length;i++){
-      opts+='<option value="'+PARTS[i][0]+'"'+(r.part===PARTS[i][0]?' selected':'')+'>'+PARTS[i][1]+'</option>';
-    }
-    $('ruleForm').innerHTML='<div class="rform">'
-      +'<div class="field"><label>Правило</label><input type="text" id="rText" maxlength="200" value="'+esc(r.text)+'" placeholder=""></div>'
-      +'<div class="rrow">'
-      +'<div class="field"><label>Когда</label><select id="rPart">'+opts+'</select></div>'
-      +'<div class="field"><label>Время (не обязательно)</label><input type="time" id="rTime" value="'+esc(r.time||'')+'"></div>'
-      +'</div>'
-      +'<button class="rsave" id="rSave">'+(ruleEdit!==null?'Сохранить':'Добавить')+'</button></div>';
-    $('ruleAdd').textContent='Отмена';
-    $('ruleAdd').classList.add('cancel');
-    var el=document.getElementById('rText'); if(el) el.focus();
-  }
+  // ---- неделя: каркас (слева, постоянный) и факт (справа, по датам) ----
+  // Каркас повторяется каждую неделю. Факт живёт на конкретной дате
+  // и каркас не трогает: замена в один понедельник не двигает остальные.
+  function renderTrainWeek(){
+    var mon=mondayOf(new Date()), todayK=localKey(new Date());
+    var html='<div class="wk-head"><span></span><span>Каркас</span><span>Факт</span></div>';
+    for(var i=0;i<7;i++){
+      var d=new Date(mon); d.setDate(mon.getDate()+i);
+      var dk=localKey(d), id=DAYS[i][0], tpl=state.plan[id];
+      var act=state.actual[dk], swapped=!!act&&act!==tpl;
+      var future=dk>todayK;
 
-  function renderRules(){
-    renderRuleForm();
-    if(!state.rules.length){
-      $('rulesList').innerHTML='<div class="rempty">Пока пусто.<br>Нажми «+ Правило» и впиши своё.</div>';
-      return;
-    }
-    var html='';
-    for(var p=0;p<PARTS.length;p++){
-      var pk=PARTS[p][0];
-      var items=[];
-      for(var i=0;i<state.rules.length;i++){ if(state.rules[i].part===pk) items.push({r:state.rules[i],i:i}); }
-      if(!items.length) continue;
-      items.sort(function(a,b){
-        var ta=a.r.time||'99:99', tb=b.r.time||'99:99';
-        return ta<tb?-1:(ta>tb?1:a.i-b.i);
-      });
-      html+='<div class="rgroup"><div class="rg-head"><span class="rg-name">'+PARTS[p][1]+'</span>'
-        +'<span class="rg-line"></span><span class="rg-count">'+items.length+'</span></div>';
-      for(var j=0;j<items.length;j++){
-        var it=items[j];
-        html+='<div class="ritem"><span class="r-no">'+(j+1)+'</span>'
-          +'<span class="r-body"><span class="r-text">'+esc(it.r.text)+'</span>'
-          +(it.r.time?'<span class="r-time">'+esc(it.r.time)+'</span>':'')+'</span>'
-          +'<span class="r-acts">'
-          +'<button data-redit="'+it.i+'" aria-label="Изменить">✎</button>'
-          +'<button class="del" data-rdel="'+it.i+'" aria-label="Удалить">×</button>'
-          +'</span></div>';
+      var pl='';
+      for(var o=0;o<PLAN_OPTS.length;o++){
+        var pv=PLAN_OPTS[o];
+        pl+='<option'+(pv===tpl?' selected':'')+'>'+esc(pv)+'</option>';
       }
-      html+='</div>';
+
+      var fa='<option value=""'+(act?'':' selected')+'>По каркасу</option>';
+      for(var j=0;j<PLAN_OPTS.length;j++){
+        var fv=PLAN_OPTS[j];
+        if(fv===tpl) continue;                    // совпало с каркасом — это и есть «по каркасу»
+        fa+='<option value="'+esc(fv)+'"'+(act===fv?' selected':'')+'>'+esc(fv)+'</option>';
+      }
+
+      html+='<div class="wkrow'+(swapped?' swapped':'')+(dk===todayK?' today':'')+(future?' future':'')+'">'
+        +'<div class="wk-day"><span class="wk-dow">'+DAYS[i][1]+'</span>'
+        +'<span class="wk-date">'+pad(d.getDate())+'.'+MONTHS_SHORT[d.getMonth()]+'</span></div>'
+        +'<select class="wsel" data-day="'+id+'" aria-label="Каркас: '+DAYS[i][1]+'">'+pl+'</select>'
+        +'<select class="wsel fact" data-fact="'+dk+'"'+(future?' disabled':'')
+        +' aria-label="Факт: '+DAYS[i][1]+'">'+fa+'</select>'
+        +'</div>';
     }
-    $('rulesList').innerHTML=html;
+    $('weekEditor').innerHTML=html;
   }
 
-  $('ruleAdd').addEventListener('click',function(){
-    if(ruleFormOpen){ ruleFormOpen=false; ruleEdit=null; }
-    else { ruleFormOpen=true; ruleEdit=null; }
-    renderRules();
-  });
-
-  $('ruleForm').addEventListener('click',function(e){
-    if(!e.target.closest('#rSave')) return;
-    var txt=((document.getElementById('rText')||{}).value||'').trim();
-    if(!txt){ var el=document.getElementById('rText'); if(el) el.focus(); return; }
-    var obj={
-      text:txt,
-      part:(document.getElementById('rPart')||{}).value||'morning',
-      time:(document.getElementById('rTime')||{}).value||''
-    };
-    if(ruleEdit!==null) state.rules[ruleEdit]=obj; else state.rules.push(obj);
-    save('pv_rules',state.rules);
-    ruleFormOpen=false; ruleEdit=null;
-    renderRules();
-  });
-  $('ruleForm').addEventListener('keydown',function(e){
-    if(e.key==='Enter' && e.target.id==='rText'){ e.preventDefault(); var b=document.getElementById('rSave'); if(b) b.click(); }
-  });
-
-  $('rulesList').addEventListener('click',function(e){
-    var ed=e.target.closest('[data-redit]');
-    if(ed){ ruleEdit=+ed.getAttribute('data-redit'); ruleFormOpen=true; renderRules(); return; }
-    var dl=e.target.closest('[data-rdel]');
-    if(dl){
-      state.rules.splice(+dl.getAttribute('data-rdel'),1);
-      save('pv_rules',state.rules);
-      if(ruleEdit!==null){ ruleEdit=null; ruleFormOpen=false; }
-      renderRules();
+  $('weekEditor').addEventListener('change',function(e){
+    var s=e.target.closest('select'); if(!s) return;
+    var day=s.getAttribute('data-day');
+    if(day){
+      state.plan[day]=s.value;
+      save('pv_plan',state.plan);
+    } else {
+      var dk=s.getAttribute('data-fact'), v=s.value;
+      if(v) state.actual[dk]=v; else delete state.actual[dk];  // пусто = вернуть к каркасу
+      save('pv_actual',state.actual);
     }
+    renderTrainWeek(); renderWeek();
   });
 
-  // ---- weekly goal ----
   var ESC_MAP={'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'};
   function esc(s){ return String(s).replace(/[&<>"']/g,function(c){ return ESC_MAP[c]; }); }
   function curWeekKey(){ return localKey(viewMon); }
@@ -1869,12 +1845,58 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
   }
 
   // sleep schedule
-  var SCHED={ summer:{bed:'23:00',wake:'07:00',dur:'~8 ч'}, winter:{bed:'22:00',wake:'06:30',dur:'~8.5 ч'} };
-  function renderSeason(){
-    var s=SCHED[state.season]; $('sBed').textContent=s.bed; $('sWake').textContent=s.wake; $('sDur').textContent=s.dur;
-    $('seasonSeg').querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-v')===state.season);});
+  // ---- калькулятор сна ----
+  // Сон идёт циклами ~90 минут. Считаем варианты так, чтобы подъём
+  // приходился на конец цикла, а не на его середину.
+  var CYCLE=90, slpMode='wake';
+
+  function minToStr(m){
+    m=((m%1440)+1440)%1440;                 // переход через полночь
+    return pad(Math.floor(m/60))+':'+pad(m%60);
   }
-  bindSeg('seasonSeg',function(v){ state.season=v; renderSeason(); save('pv_season',state.season); });
+  function strToMin(v){
+    var p=String(v||'').split(':');
+    var h=parseInt(p[0],10), m=parseInt(p[1],10);
+    if(isNaN(h)||isNaN(m)) return null;
+    return h*60+m;
+  }
+  function durText(mins){
+    var h=Math.floor(mins/60), m=mins%60;
+    return h+' ч'+(m?' '+m+' мин':'');
+  }
+
+  function renderSleep(){
+    var t=strToMin($('slpTime').value);
+    var fall=parseInt($('slpFall').value,10); if(isNaN(fall)||fall<0) fall=0; if(fall>60) fall=60;
+    if(t===null){ $('slpOut').innerHTML='<div class="slp-empty">Укажи время.</div>'; return; }
+
+    var rows='';
+    for(var c=6;c>=3;c--){                  // 6 циклов = 9 ч, 3 = 4.5 ч
+      var sleepMin=c*CYCLE, res, bed, wake;
+      if(slpMode==='wake'){
+        wake=t; bed=t-sleepMin-fall;        // от подъёма назад: сон + засыпание
+      } else {
+        bed=t; wake=t+fall+sleepMin;        // от отбоя вперёд
+      }
+      var good=c>=5;                        // 7.5–9 ч — норма для взрослого
+      rows+='<div class="slp-row'+(good?' good':'')+'">'
+        +'<div class="slp-time"><span class="slp-k">Отбой</span><b>'+minToStr(bed)+'</b></div>'
+        +'<div class="slp-arrow">→</div>'
+        +'<div class="slp-time"><span class="slp-k">Подъём</span><b>'+minToStr(wake)+'</b></div>'
+        +'<div class="slp-meta"><span>'+durText(sleepMin)+'</span><span>'+c+' цикла'+(c>4?'':'')+'</span></div>'
+        +'</div>';
+    }
+    $('slpOut').innerHTML=rows;
+  }
+
+  bindSeg('slpModeSeg',function(v){
+    slpMode=v;
+    $('slpLabel').textContent = v==='wake' ? 'Во сколько встать' : 'Во сколько лечь';
+    $('slpTime').value = v==='wake' ? '07:00' : '23:00';
+    renderSleep();
+  });
+  $('slpTime').addEventListener('input',renderSleep);
+  $('slpFall').addEventListener('input',renderSleep);
 
   // tabs
   $('tabs').addEventListener('click',function(e){
@@ -1883,7 +1905,7 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
     var t=b.getAttribute('data-tab');
     $('tabs').querySelectorAll('button').forEach(function(x){x.classList.remove('active');});
     b.classList.add('active');
-    ['week','progress','train','food','sleep','id','rules'].forEach(function(name){
+    ['week','progress','train','food','sleep','id'].forEach(function(name){
       $('tab-'+name).hidden = (name!==t);
     });
     if(t==='progress') renderProgress();
@@ -1893,7 +1915,7 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
   function openProgress(){
     closeSettings();
     $('tabs').querySelectorAll('button').forEach(function(x){x.classList.remove('active');});
-    ['week','progress','train','food','sleep','id','rules'].forEach(function(name){
+    ['week','progress','train','food','sleep','id'].forEach(function(name){
       $('tab-'+name).hidden = (name!=='progress');
     });
     renderProgress();
@@ -2387,7 +2409,11 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
     });
     if(!TG) $('btnSync').style.display='none';
     else if(!$('syncNote').classList.contains('ok')) setSyncNote('данные синхронизируются с Telegram');
-    $('btnSync').addEventListener('click',cloudPush);
+    $('btnSync').addEventListener('click',function(){
+      cloudSync(function(ok,changed){
+        if(changed) reloadFromStorage();
+      });
+    });
     $('btnExport').addEventListener('click',doExport);
     $('btnImport').addEventListener('click',function(){ $('fileIn').click(); });
     $('fileIn').addEventListener('change',function(e){
@@ -2398,68 +2424,87 @@ section,.settings,.results.show,.crest,.tog,.day,.card{animation:none !important
     });
   }
 
+  // Перечитать всё из локального хранилища и перерисовать.
+  // Нужно после слияния: данные изменились под нами, экран должен догнать.
+  var hydrate=null;
+  async function reloadFromStorage(){
+    if(!hydrate) return;
+    await hydrate();
+    renderTrainWeek(); renderGoal(); renderWeek(); renderSleep();
+    restoreCalc(); updateCalcCount(); renderFoodDay(); renderFoodMonth();
+    if(!$('tab-progress').hidden) renderProgress();
+    setSyncNote('данные обновлены из Telegram','ok');
+  }
+  onCloudMerge=reloadFromStorage;   // слияние что-то принесло — экран должен догнать
+
   // init
   (async function(){
     initTelegram();
     applyTheme();                       // сразу по системной теме, без вспышки
-    if(TG && !lsGet('pv_checks') && !lsGet('pv_food')){
+    // Читаем облако при КАЖДОМ запуске и сливаем с локальным.
+    // Раньше читали только на пустом устройстве — из-за этого телефон и компьютер
+    // расходились: оба отправляли, но никто не забирал.
+    if(TG && TG.CloudStorage){
       await new Promise(function(res){
         var done=false;
         var fin=function(){ if(!done){ done=true; res(); } };
         setTimeout(fin, 2500);          // старые клиенты Telegram молчат — не ждём вечно
-        try{ cloudPull(function(ok){ if(ok) setSyncNote('данные загружены из Telegram','ok'); fin(); }); }
+        try{ cloudPull(function(ok){ if(ok) setSyncNote('данные из Telegram получены','ok'); fin(); }); }
         catch(e){ fin(); }
       });
     }
-    // Загружаем и чистим. Если чистка что-то изменила — сразу переписываем ключ,
-    // иначе мусор осел бы в хранилище навсегда и уехал бы в облако Telegram.
-    async function loadClean(key, norm){
-      var raw=await load(key,null);
-      var val=norm(raw);
-      if(raw!==null && JSON.stringify(raw)!==JSON.stringify(val)) save(key,val);
-      return val;
-    }
 
-    state.checks = await loadClean('pv_checks', normChecks);
-    state.plan   = await loadClean('pv_plan',   normPlan);
-    state.actual = await loadClean('pv_actual', normActual);
-    state.extras = await loadClean('pv_extras', normExtras);
-    state.calc   = await loadClean('pv_calc',   normCalc);
-    state.goals  = await loadClean('pv_goals',  normGoals);
-    state.food   = await loadClean('pv_food',   normFood);
-    state.myfoods= await loadClean('pv_myfoods',normMyfoods);
+    hydrate=async function(){
+      // Загружаем и чистим. Если чистка что-то изменила — сразу переписываем ключ,
+      // иначе мусор осел бы в хранилище навсегда и уехал бы в облако Telegram.
+      async function loadClean(key, norm){
+        var raw=await load(key,null);
+        var val=norm(raw);
+        if(raw!==null && JSON.stringify(raw)!==JSON.stringify(val)) save(key,val);
+        return val;
+      }
 
-    var season   = await load('pv_season','summer');
-    state.season = SCHED[season] ? season : 'summer';
-    if(state.season!==season) save('pv_season',state.season);
+      state.checks = await loadClean('pv_checks', normChecks);
+      state.plan   = await loadClean('pv_plan',   normPlan);
+      state.actual = await loadClean('pv_actual', normActual);
+      state.extras = await loadClean('pv_extras', normExtras);
+      state.calc   = await loadClean('pv_calc',   normCalc);
+      state.goals  = await loadClean('pv_goals',  normGoals);
+      state.food   = await loadClean('pv_food',   normFood);
+      state.myfoods= await loadClean('pv_myfoods',normMyfoods);
 
-    var rawRules = await load('pv_rules',null);
-    if(rawRules===null){
-      state.rules=[{text:'Зарядка каждое утро',part:'morning',time:''},
-                   {text:'Растяжка перед сном',part:'evening',time:'22:00'}];
-      save('pv_rules',state.rules);
-    } else {
-      state.rules=normRules(rawRules);
-      if(JSON.stringify(rawRules)!==JSON.stringify(state.rules)) save('pv_rules',state.rules);
-    }
 
-    liteMode     = (await load('pv_mode',false))===true;
-    themePref    = await load('pv_theme','auto');
-    if(['auto','light','dark'].indexOf(themePref)<0) themePref='auto';
-    applyTheme();
-    var mv       = await load('pv_mealview',null);
-    if(isObj(mv)){ mealsOpen=(mv.all!==false); if(isObj(mv.per)) mealOpen=Object.assign({b:true,l:true,d:true,s:true},mv.per); }
+      liteMode     = (await load('pv_mode',false))===true;
+      themePref    = await load('pv_theme','auto');
+      if(['auto','light','dark'].indexOf(themePref)<0) themePref='auto';
+      applyTheme();
+      var mv       = await load('pv_mealview',null);
+      if(isObj(mv)){ mealsOpen=(mv.all!==false); if(isObj(mv.per)) mealOpen=Object.assign({b:true,l:true,d:true,s:true},mv.per); }
+    };
+    await hydrate();
 
     renderTrainWeek();
     renderGoal();
-    renderRules();
+   
     renderWeek();
-    renderSeason();
+    renderSleep();
     restoreCalc();
     updateCalcCount();
     setMode(liteMode);        // внутри уже вызывает renderFoodDay
     renderFoodMonth();
     bindDataButtons();
+
+    // Вернулся в приложение после паузы — проверяем, не появилось ли нового
+    // с другого устройства. Без этого пришлось бы перезапускать приложение.
+    if(TG && TG.CloudStorage){
+      var lastCheck=Date.now();
+      document.addEventListener('visibilitychange',function(){
+        if(document.hidden) return;
+        if(Date.now()-lastCheck < 30000) return;   // не дёргаем облако на каждое переключение
+        lastCheck=Date.now();
+        cloudSync(function(ok,changed){ if(changed) reloadFromStorage(); });
+      });
+    }
     // вкладка прогресса скрыта при старте — считаем её при первом открытии
   })();
 })();
